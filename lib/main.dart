@@ -1,13 +1,13 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutterbasestructure/shared/widgets/404.dart';
 import 'package:get/get.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import '404.dart';
-import 'config/theme.dart';
-import 'navigation/all_pages.dart';
-import 'services/app_service.dart';
-import 'store/state_controller.dart';
+import 'core/config/theme.dart';
+import 'core/navigation/all_pages.dart';
+import 'core/services/app_service.dart';
+import 'shared/store/state_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
