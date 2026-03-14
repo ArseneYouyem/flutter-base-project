@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutterbasestructure/core/services/secure_storage_service.dart';
+import 'package:flutterbasestructure/shared/network/dio/cache_loger_interceptor_controller.dart';
 import 'package:get/get.dart';
 import 'storage_services.dart';
 import '../../shared/store/state_controller.dart';
@@ -15,6 +16,7 @@ class AppService {
   static _initController() async {
     Get.put(StateController(), permanent: true);
     Get.put(UserController(), permanent: true);
+    Get.put(CacheLogerInterceptorController(), permanent: true);
   }
 
   static initServices() async {

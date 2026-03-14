@@ -6,6 +6,7 @@ import 'package:flutterbasestructure/shared/widgets/core_widget_const.dart';
 import 'package:flutterbasestructure/shared/widgets/forms/buttons.dart';
 import 'package:flutterbasestructure/shared/widgets/forms/input.dart';
 import 'package:get/get.dart';
+import '../../../shared/network/dio/cache_loger_interceptor_view.dart';
 import '../controllers/auth_controller.dart';
 
 class LoginView extends StatelessWidget {
@@ -20,6 +21,13 @@ class LoginView extends StatelessWidget {
       // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text("Login"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                goTo(() => CacheLogerInterceptorView());
+              },
+              icon: Icon(Icons.bug_report))
+        ],
       ),
       body: Padding(
         padding: horizontalPagePadding,

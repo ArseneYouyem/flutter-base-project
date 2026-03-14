@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutterbasestructure/shared/network/api_path.dart';
 import 'package:get/get.dart';
 import 'cache_interceptor.dart';
+import 'cache_loger_interceptor.dart';
 import 'http_logger_interceptor.dart';
 import 'token_interceptor.dart';
 
@@ -26,6 +27,7 @@ void setupLocator() {
         TokenInterceptor(),
         CacheInterceptor(),
         HttpLoggerInterceptor(),
+        CacheLogerInterceptor(),
       ]),
   );
 }

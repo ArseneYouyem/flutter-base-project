@@ -1,4 +1,5 @@
 class StorageKey {
+  static const debugLog = "debugLog";
   static const token = "token";
   static const refreshToken = "refreshToken";
   static const user = "user";

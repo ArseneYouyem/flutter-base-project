@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutterbasestructure/shared/widgets/app_toast.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
+
+import '../config/constant_colors.dart';
 
 Future<void> openUrl(String url) async {
   // logIfDebug(url);
@@ -82,4 +86,16 @@ String getMimeType(String path) {
     mimeType = 'video/x-matroska';
   }
   return mimeType;
+}
+
+copyToClipboard(value, {String? title, bool allowCopie = false}) {
+  Clipboard.setData(ClipboardData(text: "$value")).then((_) {
+    AppToast.showToast(
+      "${title ?? "ID"} copié dans le presse-papiers",
+      backgroud: AppColor.grey.withValues(alpha: 0.5),
+      textColor: AppColor.greyText,
+    );
+    // ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
+    //     content: Text("${title ?? "ID"} copié dans le presse-papiers")));
+  });
 }
