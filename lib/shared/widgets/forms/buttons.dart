@@ -41,6 +41,8 @@ Widget primaryButton({
     style: ElevatedButton.styleFrom(
       side: primary ? null : BorderSide(color: borderColor ?? AppColor.primary),
       backgroundColor: color ?? (primary ? AppColor.primary : AppColor.white),
+      // surfaceTintColor: AppColor.primary,
+      foregroundColor: primary ? null : AppColor.primary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(radius ?? 12),
       ),
@@ -49,7 +51,6 @@ Widget primaryButton({
       onTap?.call();
     },
     child: Container(
-        height: height ?? 48,
         alignment: Alignment.center,
         width: autoSized ? null : width ?? Get.width,
         child: autoSized

@@ -20,7 +20,9 @@ class AppSnackbar {
                   : Icons.check_circle_outline_rounded),
           color: iconColor ?? (error ? AppColor.red : AppColor.white),
         ),
-        backgroundColor:
-            backgroud ?? (error ? AppColor.grey : AppColor.primary));
+        backgroundColor: backgroud ??
+            (error
+                ? AppColor.grey
+                : AppColor.darkGreen.withValues(alpha: 0.8)));
   }
 }

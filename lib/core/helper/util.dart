@@ -60,3 +60,26 @@ initBinding(VoidCallback callback) {
     callback.call();
   });
 }
+
+String getMimeType(String path) {
+  final lPath = path.toLowerCase();
+  String mimeType = '';
+  if (lPath.endsWith('.jpg') || lPath.endsWith('.jpeg')) {
+    //format image
+    mimeType = 'image/jpeg';
+  } else if (lPath.endsWith('.png')) {
+    mimeType = 'image/png';
+  } else if (lPath.endsWith('.gif')) {
+    mimeType = 'image/gif';
+  } else if (lPath.endsWith('.mp4')) {
+    //format video
+    mimeType = 'video/mp4';
+  } else if (lPath.endsWith('.mov')) {
+    mimeType = 'video/quicktime';
+  } else if (lPath.endsWith('.avi')) {
+    mimeType = 'video/x-msvideo';
+  } else if (lPath.endsWith('.mkv')) {
+    mimeType = 'video/x-matroska';
+  }
+  return mimeType;
+}

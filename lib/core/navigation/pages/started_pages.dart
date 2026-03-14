@@ -1,3 +1,5 @@
+import 'package:flutterbasestructure/core/navigation/all_routes.dart';
+import 'package:flutterbasestructure/features/onboarding/views/started_view.dart';
 import 'package:get/get.dart';
 
 List<GetPage> startedPages = [
@@ -5,8 +7,8 @@ List<GetPage> startedPages = [
   //   name: Routes.started.login,
   //   page: () => LoginView(),
   // ),
-  // GetPage(
-  //   name: Routes.started.splash,
-  //   page: () => SplashView(),
-  // ),
+  GetPage(
+    name: Routes.started.splash,
+    page: () => StartedView(),
+  ),
 ];

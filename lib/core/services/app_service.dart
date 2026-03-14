@@ -1,13 +1,15 @@
 import 'dart:io';
+import 'package:flutterbasestructure/core/services/secure_storage_service.dart';
 import 'package:get/get.dart';
 import 'storage_services.dart';
 import '../../shared/store/state_controller.dart';
-import '../../shared/store/user_controller.dart';
+import '../../features/application/controllers/user_controller.dart';
 
 class AppService {
   static _initService() async {
     HttpOverrides.global = MyHttpOverrides();
     await Get.putAsync(() => StorageService().init());
+    await Get.putAsync(() => SecureStorageService().init());
   }
 
   static _initController() async {

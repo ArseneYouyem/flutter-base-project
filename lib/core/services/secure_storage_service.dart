@@ -1,10 +1,10 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
-class StorageService extends GetxService {
+class SecureStorageService extends GetxService {
   late FlutterSecureStorage _box;
 
-  Future<StorageService> init() async {
+  Future<SecureStorageService> init() async {
     _box = FlutterSecureStorage(
       aOptions: AndroidOptions(
         encryptedSharedPreferences: true,
@@ -13,8 +13,8 @@ class StorageService extends GetxService {
     return this;
   }
 
-  Future<void> save(String key, data) async {
-    return await _box.write(key: key, value: data);
+  Future<void> save(String key, data) {
+    return _box.write(key: key, value: data);
   }
 
   Future<bool> hasKey(String key) async {

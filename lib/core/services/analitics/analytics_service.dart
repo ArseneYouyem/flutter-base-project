@@ -1,6 +1,6 @@
 // import 'package:firebase_analytics/firebase_analytics.dart';
 import '../../helper/outputs.dart';
-import '../../../shared/store/user_controller.dart';
+import '../../../features/application/controllers/user_controller.dart';
 
 enum fbEvent {
   navigation,

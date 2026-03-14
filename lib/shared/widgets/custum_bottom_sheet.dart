@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/config/constant_colors.dart';
-import '../../core/config/theme.dart';
 
 class CustumBottomSheet extends StatelessWidget {
   final String buttonText;
@@ -18,7 +17,6 @@ class CustumBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Container(
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom + 24.h,
