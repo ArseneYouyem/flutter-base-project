@@ -10,10 +10,14 @@ class AppColor {
   static const Color transparent = Colors.transparent;
   static const Color grey = Color.fromRGBO(143, 144, 152, 1);
   static const Color greyText = Color.fromRGBO(113, 114, 122, 1);
+  static Color grey249 = const Color.fromRGBO(249, 249, 249, 1);
+  static const Color grey31 = Color.fromRGBO(31, 31, 31, 1);
   static const Color greyBorder = Color.fromRGBO(197, 198, 204, 1);
   static const Color backGround = Color.fromRGBO(248, 248, 254, 1);
   static const Color lightMedium = Color.fromRGBO(232, 233, 241, 1);
   static const Color warning = Color.fromRGBO(232, 99, 57, 1);
+  static Color borderColor = const Color.fromRGBO(172, 184, 194, 1);
+  static Color blue50 = const Color.fromRGBO(244, 247, 254, 1);
   //
   static const Color black = Colors.black;
   static const Color white = Colors.white;

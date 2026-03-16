@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/config/constant_colors.dart';
@@ -8,10 +10,10 @@ import 'core_widget_const.dart';
 import 'forms/buttons.dart';
 
 class AppDialog {
-static void closeDialog<T>() {
-  if (Get.isDialogOpen!) Get.close(0);
-  removeKeyboardFocus();
-}
+  static void closeDialog<T>() {
+    if (Get.isDialogOpen!) Get.close(0);
+    removeKeyboardFocus();
+  }
 
   static showCustumDialog({
     required Widget child,
@@ -154,6 +156,127 @@ static void closeDialog<T>() {
         ],
       ),
       barrierDismissible: false,
+    );
+  }
+
+  showBackgroundBlurDialog({
+    String? title,
+    Widget? warningIcon,
+    String? description,
+    Widget? child,
+    bool dismissible = true,
+    bool showButons = false,
+    bool warning = false,
+    String validateText = "Confirmer",
+    String cancelText = "Annuler",
+    VoidCallback? validateCallback,
+    VoidCallback? cancelCallback,
+  }) {
+    Get.dialog(
+      Material(
+        color: AppColor.transparent,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+          child: Column(
+            children: [
+              Expanded(
+                  child: actionButton(
+                onTap: dismissible ? back : null,
+                child: Container(
+                  width: Get.width,
+                ),
+              )),
+              Container(
+                width: Get.width,
+                margin: horizontalPagePadding,
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                decoration: BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(32)),
+                child: Column(
+                  children: [
+                    space(5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                            decoration:
+                                decoStatus.copyWith(color: AppColor.blue50),
+                            child: IconButton(
+                                onPressed: back, icon: Icon(Icons.close)))
+                      ],
+                    ),
+                    if (title != null)
+                      Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: titleStyle(size: 24, color: AppColor.grey31),
+                      ),
+                    if (title != null) space(15),
+                    if (warningIcon != null) warningIcon,
+                    if (warningIcon != null) space(15),
+                    if (description != null)
+                      Text(
+                        description,
+                        textAlign: TextAlign.center,
+                        style: textBodyStyle(
+                          size: 16,
+                          color: AppColor.greyText,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    if (description != null) space(15),
+                    child ?? Container(),
+                    if (showButons)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Row(
+                          children: [
+                            if (cancelCallback != null)
+                              Expanded(
+                                  child: primaryButton(
+                                text: cancelText,
+                                onTap: () {
+                                  back();
+                                  cancelCallback.call();
+                                },
+                                primary: warning,
+                                color: warning ? null : AppColor.grey249,
+                                borderColor:
+                                    warning ? null : AppColor.greyBorder,
+                                textColor: warning ? null : AppColor.black,
+                              )),
+                            if (cancelCallback != null &&
+                                validateCallback != null)
+                              space(0, w: 10),
+                            if (validateCallback != null)
+                              Expanded(
+                                  child: primaryButton(
+                                text: validateText,
+                                onTap: validateCallback,
+                                primary: !warning,
+                              )),
+                          ],
+                        ),
+                      ),
+                    space(32),
+                  ],
+                ),
+              ),
+              Expanded(
+                  child: actionButton(
+                onTap: dismissible ? back : null,
+                child: Container(
+                  width: Get.width,
+                ),
+              )),
+            ],
+          ),
+        ),
+      ),
+      useSafeArea: false,
+      barrierColor: Colors.black26,
+      barrierDismissible: dismissible,
     );
   }
 }
